@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zero-copy-pipe"
+version = "0.1.0"
+description = "Generic 3-end zero-copy multiprocess GPU+CPU image processing pipe using SharedMemory, cudaHostRegister, and PyTorch"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+cuda = ["torch>=2.5"]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["zero_copy_pipe*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
